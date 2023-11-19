@@ -8,12 +8,6 @@ Mobile Platform Application build with:
 
 ... more infos to come
 
-
-# Spring Boot
-TODO 8-)
-
-
-
 # Angular
 ### Development server
 Run `ng serve` for a dev server. 
