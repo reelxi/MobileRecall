@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mobile_recall
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+
+# If the Access Denied for root@localhost appears
+# backup the database and delete all volumes regarding.
+# Also: restart the docker-compose file q:^)
