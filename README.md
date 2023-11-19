@@ -3,6 +3,8 @@
 Mobile Platform Application build with:
 - [Angular](https://angular.io/) in Version 16.2.8
 - [Spring Boot](https://spring.io/projects/spring-boot) in Version 3.1.5
+- [Docker](https://www.docker.com/)
+- [MySQL](https://www.mysql.com/)
 
 ... more infos to come
 
