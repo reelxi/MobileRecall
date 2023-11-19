@@ -1,0 +1,13 @@
+<p-toolbar>
+  <div class="p-toolbar-group-start">
+    <a href="" style="text-decoration: none">{{href}}</a>
+  </div>
+
+  <div class="p-toolbar-group-center">
+    <div>{{clock | date: 'HH' }}<span id="separator">:</span>{{clock | date: 'mm'}}</div>
+  </div>
+
+  <div class="p-toolbar-group-start">
+    <div>{{user}}</div>
+  </div>
+</p-toolbar>

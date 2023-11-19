@@ -1,0 +1,30 @@
+<div class="transition-duration-100">
+  <p-dataView #dv [value]="cardGroups">
+    <ng-template let-cardGroup pTemplate="listItem">
+      <div class="col-12 clickable hoverEffect" (click)="openLearnViewWithCardsFromCardGroupID(cardGroup);">
+        <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+          <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+            <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+              <h1 class="text-2xl">{{cardGroup.groupName}}</h1>
+              <div class="flex align-items-center gap-3">
+                                <span class="flex align-items-center gap-2">
+                                  <i class="pi pi-user"></i>
+                                  <span class="font-semibold"> created by {{cardGroup.creator.username}}</span>
+                                </span>
+              </div>
+            </div>
+            <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+              <p-tag [value]="cardGroup.identifier">
+                <i class="pi pi-hashtag"></i>
+              </p-tag>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+</div>
+
+<div class="flex justify-content-center" style="margin-top: 50px">
+  <button pButton label="+"></button>
+</div>

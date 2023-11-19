@@ -1,0 +1,19 @@
+@keyframes fadeAnimation {
+  0%   { color: #000000; }
+  50%  { color: #FFD54F; }
+  100% { color: #000000; }
+}
+
+.clickable:hover {
+  cursor: pointer;
+  background-color: #FFD54F;
+  font-weight: bold;
+}
+
+.hoverEffect:hover {
+  animation: fadeAnimation 3s infinite;
+}
+
+a {
+  text-decoration: none;
+}
