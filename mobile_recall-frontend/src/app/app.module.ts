@@ -1,11 +1,10 @@
-// Import id, register, german package
 import {LOCALE_ID, NgModule} from '@angular/core';
 import {NgOptimizedImage, registerLocaleData} from '@angular/common';
 import * as de from '@angular/common/locales/de';
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from '@angular/platform-browser';
 
 import {CardModule} from "primeng/card";
@@ -23,20 +22,24 @@ import {TagModule} from "primeng/tag";
 import {AppRoutingModule} from './routing/app-routing.module';
 import {AppComponent} from './app.component';
 
-import {NavbarComponent} from './components/navbar/navbar.component';
 import {MainContainerComponent} from './components/main-container/main-container.component';
 import {CardComponent} from './components/card/card.component';
-import { LearnViewComponent } from './components/learn-view/learn-view.component';
+import {LearnViewComponent} from './components/learn-view/learn-view.component';
 import {MessagesModule} from "primeng/messages";
+import {InputTextModule} from "primeng/inputtext";
+import {DialogModule} from "primeng/dialog";
+import {CreationFormCardGroupComponent} from "./dialog-forms/creation-form-cardgroup/creation-form-cardgroup.component";
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    NavbarComponent,
     MainContainerComponent,
-    LearnViewComponent
+    LearnViewComponent,
+    CreationFormCardGroupComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
@@ -57,15 +60,18 @@ import {MessagesModule} from "primeng/messages";
     MenubarModule,
     ToolbarModule,
     TagModule,
-    MessagesModule
+    MessagesModule,
+    InputTextModule,
+    DialogModule,
+    ReactiveFormsModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'de-DE'} // Add id/language code
+    {provide: LOCALE_ID, useValue: 'de-DE'}
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor() {
-    registerLocaleData(de.default); // Register Language
+    registerLocaleData(de.default);
   }
 }
