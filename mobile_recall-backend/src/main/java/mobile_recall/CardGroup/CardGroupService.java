@@ -19,11 +19,13 @@ public class CardGroupService {
         return cardGroupRepository.findAll();
     }
 
-    public Optional<CardGroup> getCardGroupByID(UUID cardGroupId) {
+    public Optional<CardGroup> getCardGroupById(UUID cardGroupId) {
         return cardGroupRepository.findById(cardGroupId);
     }
 
-    public List<CardGroup> getCardGroupsByUserID(UUID userId) { return cardGroupRepository.findCardGroupByUserID(userId); }
+    public List<CardGroup> getCardGroupsByUserId(UUID userId) {
+        return cardGroupRepository.findCardGroupByUserId(userId);
+    }
 
     public CardGroup saveCardGroup(CardGroup cardGroup) {
         return cardGroupRepository.save(cardGroup);

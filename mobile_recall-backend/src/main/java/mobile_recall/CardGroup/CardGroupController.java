@@ -1,11 +1,10 @@
 package mobile_recall.CardGroup;
 
 import jakarta.validation.Valid;
-import mobile_recall.Cards.Card;
-import mobile_recall.Cards.CardService;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,33 +15,53 @@ import java.util.UUID;
 public class CardGroupController {
 
     private final CardGroupService cardGroupService;
+    private final ModelMapper modelMapper;
 
-    public CardGroupController(CardGroupService cardGroupService) {
+    public CardGroupController(CardGroupService cardGroupService, ModelMapper modelMapper) {
         this.cardGroupService = cardGroupService;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping
-    public List<CardGroup> getAllCardGroups() {
-        return cardGroupService.getAllCardGroups();
+    public ResponseEntity<List<CardGroupDTO>> getAllCardGroups() {
+        List<CardGroupDTO> entities = cardGroupService.getAllCardGroups()
+                .stream()
+                .map(this::convertToDto)
+                .toList();
+        return new ResponseEntity<>(entities, HttpStatus.OK);
     }
 
     @GetMapping("/{cardGroupId}")
-    public CardGroup getCardGroupByID(@PathVariable UUID cardGroupId) {
-        Optional<CardGroup> cardGroup = cardGroupService.getCardGroupByID(cardGroupId);
+    public ResponseEntity<CardGroupDTO> getCardGroupById(@PathVariable UUID cardGroupId) {
+        Optional<CardGroup> cardGroup = cardGroupService.getCardGroupById(cardGroupId);
         if (cardGroup.isPresent()) {
-            return cardGroup.get();
+            CardGroupDTO entity = convertToDto(cardGroup.get());
+            return new ResponseEntity<>(entity, HttpStatus.OK);
         }
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No such Element of " + getClass() + " with ID: " + cardGroupId);
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/user={userId}")
-    public List<CardGroup> getCardGroupsByUserID(@PathVariable UUID userId) {
-        return cardGroupService.getCardGroupsByUserID(userId);
+    public ResponseEntity<List<CardGroupDTO>> getCardGroupsByUserId(@PathVariable UUID userId) {
+        List<CardGroupDTO> entities = cardGroupService.getCardGroupsByUserId(userId)
+                .stream()
+                .map(this::convertToDto)
+                .toList();
+        return new ResponseEntity<>(entities, HttpStatus.OK);
     }
 
     @PostMapping
-    public CardGroup saveCard(@Valid @RequestBody CardGroup cardGroup) {
-        return cardGroupService.saveCardGroup(cardGroup);
+    public ResponseEntity<CardGroupDTO> saveCard(@Valid @RequestBody CardGroupDTO cardGroupDTO) {
+        CardGroup entity = cardGroupService.saveCardGroup(convertToEntity(cardGroupDTO));
+        return new ResponseEntity<>(convertToDto(entity), HttpStatus.OK);
     }
 
+    // MAPPER
+    private CardGroupDTO convertToDto(CardGroup cardGroup) {
+        return modelMapper.map(cardGroup, CardGroupDTO.class);
+    }
+
+    private CardGroup convertToEntity(CardGroupDTO cardGroupDTO) {
+        return modelMapper.map(cardGroupDTO, CardGroup.class);
+    }
 }

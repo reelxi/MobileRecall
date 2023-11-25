@@ -10,5 +10,5 @@ import java.util.UUID;
 @Repository
 public interface CardGroupRepository extends JpaRepository<CardGroup, UUID> {
     @Query(value = "SELECT cg FROM CardGroup cg WHERE cg.creator.identifier = ?1")
-    List<CardGroup> findCardGroupByUserID(UUID identifier);
+    List<CardGroup> findCardGroupByUserId(UUID identifier);
 }

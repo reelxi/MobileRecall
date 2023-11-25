@@ -19,12 +19,12 @@ public class CardService {
         return cardRepository.findAll();
     }
 
-    public Optional<Card> getCardByID(UUID cardId) {
+    public Optional<Card> getCardById(UUID cardId) {
         return cardRepository.findById(cardId);
     }
 
-    public List<Card> getCardsByCardGroupID(UUID cardGroupId) {
-        return cardRepository.findCardsByCardGroupID(cardGroupId);
+    public List<Card> getCardsByCardGroupId(UUID cardGroupId) {
+        return cardRepository.findCardsByCardGroupId(cardGroupId);
     }
 
     public Card saveCard(Card card) {
