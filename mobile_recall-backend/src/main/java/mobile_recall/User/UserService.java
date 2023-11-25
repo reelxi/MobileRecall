@@ -19,7 +19,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserByID(UUID userId) {
+    public Optional<User> getUserById(UUID userId) {
         return userRepository.findById(userId);
     }
 
