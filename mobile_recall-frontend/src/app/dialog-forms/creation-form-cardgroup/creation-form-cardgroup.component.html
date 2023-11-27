@@ -1,0 +1,12 @@
+<div [formGroup]="formGroup_CardGroup" id="formular">
+  <p>Group Name
+    <input type="text" pInputText formControlName="groupName">
+  </p>
+  <p>Username
+    <input type="text" pInputText formControlName="creator" readonly>
+  </p>
+  <div id="button-array">
+    <p-button label="Create" (onClick)="postCardGroupRequest()"></p-button>
+    <p-button label="Cancel"></p-button>
+  </div>
+</div>
