@@ -1,13 +1,11 @@
 package mobile_recall.Cards;
 
-import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Data
-@Builder
+@Data //@Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode
 public class CardDTO {
     private UUID identifier;
     private String question;
