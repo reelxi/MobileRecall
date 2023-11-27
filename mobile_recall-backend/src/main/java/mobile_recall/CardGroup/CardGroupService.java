@@ -27,6 +27,10 @@ public class CardGroupService {
         return cardGroupRepository.findCardGroupByUserId(userId);
     }
 
+    public void deleteById(UUID userId) {
+        cardGroupRepository.deleteById(userId);
+    }
+
     public CardGroup saveCardGroup(CardGroup cardGroup) {
         return cardGroupRepository.save(cardGroup);
     }

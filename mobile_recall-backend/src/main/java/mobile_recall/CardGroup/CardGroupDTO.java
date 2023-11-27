@@ -1,12 +1,10 @@
 package mobile_recall.CardGroup;
 
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.UUID;
 
-@Data
-@Builder
+@Data //@Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode
 public class CardGroupDTO {
     private UUID identifier;
     private String groupName;
