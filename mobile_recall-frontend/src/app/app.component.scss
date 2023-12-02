@@ -1,0 +1,22 @@
+// NAVIGATION BAR
+#clock-separator {
+  animation: blinker 2s linear infinite;
+}
+#clock {
+  position: fixed;
+  margin: 0 auto;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+// FOOTER BAR
+#footer-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}

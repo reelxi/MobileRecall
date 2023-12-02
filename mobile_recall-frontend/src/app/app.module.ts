@@ -29,7 +29,6 @@ import {MessagesModule} from "primeng/messages";
 import {InputTextModule} from "primeng/inputtext";
 import {DialogModule} from "primeng/dialog";
 import {CreationFormCardGroupComponent} from "./dialog-forms/creation-form-cardgroup/creation-form-cardgroup.component";
-import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 
 @NgModule({
@@ -38,8 +37,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
     CardComponent,
     MainContainerComponent,
     LearnViewComponent,
-    CreationFormCardGroupComponent,
-    NavigationBarComponent
+    CreationFormCardGroupComponent
   ],
   imports: [
     BrowserModule,

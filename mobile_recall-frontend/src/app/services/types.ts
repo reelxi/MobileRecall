@@ -13,11 +13,11 @@ export type Card = {
   expectedAnswer: string;
   creationDate: Date;
   successRate: number;
-  cardGroup: CardGroup;
+  cardGroupId: string;
 }
 
 export type CardGroup = {
   identifier: string;
   groupName: string;
-  creator: User;
+  creatorId: string;
 }

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreationDialogCardgroupComponent } from './creation-dialog-cardgroup.component';
+import { CreationFormCardGroupComponent } from "./creation-form-cardgroup.component";
 
 describe('CreationDialogCardgroupComponent', () => {
-  let component: CreationDialogCardgroupComponent;
-  let fixture: ComponentFixture<CreationDialogCardgroupComponent>;
+  let component: CreationFormCardGroupComponent;
+  let fixture: ComponentFixture<CreationFormCardGroupComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CreationDialogCardgroupComponent]
+      declarations: [CreationFormCardGroupComponent]
     });
-    fixture = TestBed.createComponent(CreationDialogCardgroupComponent);
+    fixture = TestBed.createComponent(CreationFormCardGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,5 +1,5 @@
 <div *ngIf="cardStack.length > 0" style="display: flex; justify-content: center; margin-top: 100px;">
-  <p-card header="{{ card.question }}" subheader="{{ card.cardGroup.groupName }}" [style]="{ width: '100%' }">
+  <p-card header="{{ card.question }}" subheader="{{ card.cardGroupId }}" [style]="{ width: '100%' }">
     <hr>
     <textarea rows="5" cols="30" pInputTextarea [autoResize]="true" placeholder="Your answer..."></textarea>
     <ng-template pTemplate="footer">

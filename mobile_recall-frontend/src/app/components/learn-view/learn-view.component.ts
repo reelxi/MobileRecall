@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {CardGroupService} from "../../services/cardgroup.service";
 import {CardService} from "../../services/card.service";
 import {Message} from "primeng/api";
+import {Card} from "../../services/types";
 
 @Component({
   selector: 'app-learn-view',

@@ -5,7 +5,7 @@ import {LearnViewComponent} from "../components/learn-view/learn-view.component"
 
 const routes: Routes = [
   {path: '', component: MainContainerComponent},
-  {path: 'cardGroup/:groupName', component: LearnViewComponent}
+  {path: 'learnView/:groupName', component: LearnViewComponent}
 ];
 
 @NgModule({

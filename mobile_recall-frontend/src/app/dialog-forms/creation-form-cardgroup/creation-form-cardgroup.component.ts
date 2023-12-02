@@ -11,9 +11,9 @@ import {CardGroupService} from "../../services/cardgroup.service";
 export class CreationFormCardGroupComponent {
 
   creator: User = {
-    identifier: "IH33F-S4PO4J-SP5H5F-SPI5HF",
+    identifier: "6707d138-43c3-450b-b9bb-b982919ef50b",
     username: "reel",
-    password: ""
+    password: "reel"
   };
 
   formGroup_CardGroup = new FormGroup({

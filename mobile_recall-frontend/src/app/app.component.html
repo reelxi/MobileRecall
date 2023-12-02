@@ -1,3 +1,16 @@
-<app-navbar></app-navbar>
-<div id="spacer" style="height: 10px"></div>
+<!-- NAVIGATION BAR -->
+<p-toolbar id="navigation-bar">
+  <a href="">{{href}}</a>
+  <p id="clock">{{clock | date: 'HH' }}<span id="clock-separator">:</span>{{clock | date: 'mm'}}</p>
+  <div>{{user}}</div>
+</p-toolbar>
+
+<!-- MAIN CONTAINER -->
 <router-outlet></router-outlet>
+
+<!-- FOOTER BAR -->
+<p-toolbar id="footer-bar">
+  <div>{{title}}</div>
+  <div>Version 0.0.0</div>
+  <div>&copy; René Elbracht 2023</div>
+</p-toolbar>
