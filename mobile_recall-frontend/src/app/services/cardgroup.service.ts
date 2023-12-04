@@ -8,21 +8,19 @@ import {CardGroup} from "./types";
 })
 export class CardGroupService {
 
-  url: string = "http://localhost:8080/cardGroup";
+  readonly url: string = "http://localhost:8080/cardGroup";
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getAllCardGroups(): Observable<CardGroup[]> {
+  fetchAllCardGroups(): Observable<CardGroup[]> {
     return this.httpClient.get<CardGroup[]>(this.url);
   }
 
-  //getCardGroupById()
+  // TODO: getAllCardGroupsByUserID, also change every invoking of getAllCardGroups() to this method
 
-  //getCardGroupsByUserId()
-
-  saveCardGroups(name: string | null): void {
-    this.httpClient.post(this.url, name).subscribe();
+  createCardGroups(body: string): Observable<CardGroup> {
+    return this.httpClient.post<CardGroup>(this.url, body, {headers: {'Content-Type': 'application/json'}});
   }
 
 }

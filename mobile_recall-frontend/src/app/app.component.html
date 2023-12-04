@@ -1,16 +1,18 @@
-<!-- NAVIGATION BAR -->
-<p-toolbar id="navigation-bar">
-  <a href="">{{href}}</a>
-  <p id="clock">{{clock | date: 'HH' }}<span id="clock-separator">:</span>{{clock | date: 'mm'}}</p>
-  <div>{{user}}</div>
-</p-toolbar>
+<div id="container">
+  <mat-toolbar id="navigation-bar" class="mat-primary">
+    <a href="">{{href}}</a>
+    <span>{{clock | date: 'HH' }} <span id="clock-separator">:</span> {{clock | date: 'mm'}}</span>
+    <span><mat-icon>person</mat-icon>
+      {{user}}</span>
+  </mat-toolbar>
 
-<!-- MAIN CONTAINER -->
-<router-outlet></router-outlet>
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
 
-<!-- FOOTER BAR -->
-<p-toolbar id="footer-bar">
-  <div>{{title}}</div>
-  <div>Version 0.0.0</div>
-  <div>&copy; René Elbracht 2023</div>
-</p-toolbar>
+  <mat-toolbar id="footer-bar" class="mat-primary">
+    <span>{{title}}</span>
+    <span>PRE-ALPHA Version 0.0.0</span>
+    <span>&copy; René Elbracht 2023</span>
+  </mat-toolbar>
+</div>

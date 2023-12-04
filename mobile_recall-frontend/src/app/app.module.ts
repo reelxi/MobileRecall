@@ -7,61 +7,47 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from '@angular/platform-browser';
 
-import {CardModule} from "primeng/card";
-import {ButtonModule} from "primeng/button";
-import {InputTextareaModule} from "primeng/inputtextarea";
-import {DataViewModule} from "primeng/dataview";
-import {KnobModule} from "primeng/knob";
-import {MenuModule} from "primeng/menu";
-import {BadgeModule} from "primeng/badge";
-import {TableModule} from "primeng/table";
-import {MenubarModule} from "primeng/menubar";
-import {ToolbarModule} from "primeng/toolbar";
-import {TagModule} from "primeng/tag";
-
 import {AppRoutingModule} from './routing/app-routing.module';
 import {AppComponent} from './app.component';
 
-import {MainContainerComponent} from './components/main-container/main-container.component';
 import {CardComponent} from './components/card/card.component';
 import {LearnViewComponent} from './components/learn-view/learn-view.component';
-import {MessagesModule} from "primeng/messages";
-import {InputTextModule} from "primeng/inputtext";
-import {DialogModule} from "primeng/dialog";
 import {CreationFormCardGroupComponent} from "./dialog-forms/creation-form-cardgroup/creation-form-cardgroup.component";
+import {CardGroupListComponent} from './components/cardgroup-list/cardgroup-list.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
+import {MatListModule} from "@angular/material/list";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    MainContainerComponent,
     LearnViewComponent,
-    CreationFormCardGroupComponent
+    CreationFormCardGroupComponent,
+    CardGroupListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CardModule,
     BrowserAnimationsModule,
-    ButtonModule,
     NgOptimizedImage,
     HttpClientModule,
-    InputTextareaModule,
-    DataViewModule,
-    KnobModule,
     FormsModule,
-    MenuModule,
-    BadgeModule,
-    TableModule,
-    MenubarModule,
-    MenubarModule,
-    ToolbarModule,
-    TagModule,
-    MessagesModule,
-    InputTextModule,
-    DialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule,
+    MatListModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'de-DE'}

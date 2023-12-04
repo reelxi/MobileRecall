@@ -1,18 +1,13 @@
-<div style="display: flex; justify-content: center; margin-top: 100px;">
-  <p-card header="{{ card.question }}" subheader="{{ card.cardGroupId }}" [style]="{ width: '100%' }">
-    <hr>
-    <textarea rows="5" cols="30" pInputTextarea [autoResize]="true" placeholder="Your answer..."></textarea>
-  </p-card>
-</div>
-
-<!-- TODO:
-  - Kartenzahl 0 of 11
-  - Aktuelle Erfolgsquote
-  - Aktuelle Lernzeit
-  - Reveal => Abgleich mit expected
-  - Hint => Snackbar mit opt. Hint
-
-  -> noch nicht revealed => Skip (zählt nicht zu Quote)
-  -> revealed => Next Card
--->
-
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{card.question}}</mat-card-title>
+    <mat-card-subtitle>{{card.cardGroupId}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <textarea rows="5" cols="20" placeholder="Your answer..."></textarea>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>HINT</button>
+  </mat-card-actions>
+</mat-card>

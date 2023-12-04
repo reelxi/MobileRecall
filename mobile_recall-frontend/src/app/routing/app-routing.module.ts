@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {MainContainerComponent} from "../components/main-container/main-container.component";
 import {LearnViewComponent} from "../components/learn-view/learn-view.component";
+import {CardGroupListComponent} from "../components/cardgroup-list/cardgroup-list.component";
 
 const routes: Routes = [
-  {path: '', component: MainContainerComponent},
+  {path: '', component: CardGroupListComponent},
   {path: 'learnView/:groupName', component: LearnViewComponent}
 ];
 
@@ -12,4 +12,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

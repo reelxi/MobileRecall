@@ -1,22 +1,45 @@
-// NAVIGATION BAR
+#container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#navigation-bar {
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 3px 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#content {
+  flex-shrink: 1;
+  flex-grow: 1;
+  padding: 3px 5px;
+  position: relative;
+  overflow-y: auto;
+}
+
+#footer-bar {
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 3px 15px;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
 #clock-separator {
   animation: blinker 2s linear infinite;
 }
-#clock {
-  position: fixed;
-  margin: 0 auto;
-}
 
 @keyframes blinker {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0.1;
+  }
 }
 
-// FOOTER BAR
-#footer-bar {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
+a {
+  color: white;
 }
