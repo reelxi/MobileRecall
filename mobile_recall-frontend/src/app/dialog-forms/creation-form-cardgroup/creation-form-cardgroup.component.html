@@ -1,12 +1,20 @@
-<div [formGroup]="formGroup_CardGroup" id="formular">
-  <p>Group Name
-    <input type="text" pInputText formControlName="groupName">
-  </p>
-  <p>Username
-    <input type="text" pInputText formControlName="creator" readonly>
-  </p>
-  <div id="button-array">
-    <p-button label="Create" (onClick)="postCardGroupRequest()"></p-button>
-    <p-button label="Cancel"></p-button>
-  </div>
+<div [formGroup]="formGroup_CardGroup">
+  <mat-form-field appearance="outline" color="accent">
+    <mat-label>Group Name</mat-label>
+    <input matInput #input formControlName="groupName" placeholder="E.g. Linear Algebra" type="text">
+    <mat-hint align="end">Characters {{input.value.length}} of 3</mat-hint>
+    <mat-error>Enter a name of at least 3 characters</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" color="accent">
+    <mat-label>Creator</mat-label>
+    <input matInput formControlName="creator" readonly>
+  </mat-form-field>
+</div>
+
+<div id="button-array">
+  <button mat-raised-button class="mat-primary" (click)="postCardGroupRequest(); close()"
+          [disabled]="formGroup_CardGroup.invalid">Create
+  </button>
+  <button mat-raised-button class="mat-accent" (click)="close()">Close</button>
 </div>

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../services/types";
 import {CardGroupService} from "../../services/cardgroup.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-creation-form-cardgroup',
@@ -10,22 +10,28 @@ import {CardGroupService} from "../../services/cardgroup.service";
 })
 export class CreationFormCardGroupComponent {
 
-  creator: User = {
-    identifier: "6707d138-43c3-450b-b9bb-b982919ef50b",
-    username: "reel",
-    password: "reel"
-  };
-
   formGroup_CardGroup = new FormGroup({
-    groupName: new FormControl<string>('', [Validators.required, Validators.minLength(1)]),
-    creator: new FormControl<string>(this.creator.username, [Validators.required])
+    groupName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    creator: new FormControl('6707d138-43c3-450b-b9bb-b982919ef50b', [Validators.required])
   });
 
-  constructor(private cardGroupService: CardGroupService) {
+  // TODO: Creator readonly field, displaying current users name
+
+  constructor(private cardGroupService: CardGroupService, private ref: MatDialogRef<any>) {
   }
 
   postCardGroupRequest(): void {
-    this.cardGroupService.saveCardGroups(this.formGroup_CardGroup.controls['groupName'].value);
+    if (this.formGroup_CardGroup.controls['groupName'].valid) {
+      let dto = `
+      {
+        "groupName": "${this.formGroup_CardGroup.get('groupName')?.value}",
+        "creatorId": "${this.formGroup_CardGroup.get('creator')?.value}"
+      }`;
+      this.cardGroupService.createCardGroups(dto).subscribe();
+    }
   }
 
+  close(): void {
+    this.ref.close();
+  }
 }

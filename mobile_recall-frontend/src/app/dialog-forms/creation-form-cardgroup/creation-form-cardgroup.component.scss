@@ -1,4 +1,10 @@
-.formular {
+mat-form-field {
+  padding: 10px;
   display: flex;
   justify-content: center;
+}
+
+#button-array {
+  display: flex;
+  justify-content: space-evenly;
 }
