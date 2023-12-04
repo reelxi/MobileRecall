@@ -1,0 +1,23 @@
+.clickable:hover {
+  background-color: rgba(55, 253, 243, 0.48);
+}
+
+mat-list {
+  padding: 10px;
+}
+
+mat-list-item {
+  margin-bottom: 10px;
+  background-color: rgb(77, 77, 77);
+}
+
+#li-button-array button {
+  margin-right: 10px;
+  margin-top: 10px
+}
+
+#button-array {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
