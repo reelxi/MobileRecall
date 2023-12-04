@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {CardGroupService} from "../../services/cardgroup.service";
 import {CardService} from "../../services/card.service";
-import {Message} from "primeng/api";
 import {Card} from "../../services/types";
 
 @Component({
@@ -14,7 +13,6 @@ export class LearnViewComponent {
   cardStack: Card[] = [];
   card: Card;
   showHint: boolean = false;
-  messages: Message[] = [];
 
   constructor(private cardGroupService: CardGroupService, private cardService: CardService) {
     this.cardStack = cardService.cardsOfSelectedCardGroup;
@@ -28,7 +26,7 @@ export class LearnViewComponent {
   cardGenerator(): void {
     this.card = this.cardStack[this.selectedCardIndex++];
     this.showHint = false;
-    this.messages = [{ severity: "info", detail: "Hint: " + this.card.expectedAnswer }];
+    //this.messages = [{ severity: "info", detail: "Hint: " + this.card.expectedAnswer }];
   }
 
   endDialog() {

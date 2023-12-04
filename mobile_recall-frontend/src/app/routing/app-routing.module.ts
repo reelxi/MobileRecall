@@ -5,7 +5,7 @@ import {CardGroupListComponent} from "../components/cardgroup-list/cardgroup-lis
 
 const routes: Routes = [
   {path: '', component: CardGroupListComponent},
-  {path: 'learnView/:groupName', component: LearnViewComponent}
+  {path: 'learning/:groupName', component: LearnViewComponent}
 ];
 
 @NgModule({

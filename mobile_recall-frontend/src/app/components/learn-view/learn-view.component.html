@@ -1,29 +1,39 @@
-<div *ngIf="cardStack.length > 0" style="display: flex; justify-content: center; margin-top: 100px;">
-  <p-card header="{{ card.question }}" subheader="{{ card.cardGroupId }}" [style]="{ width: '100%' }">
-    <hr>
-    <textarea rows="5" cols="30" pInputTextarea [autoResize]="true" placeholder="Your answer..."></textarea>
-    <ng-template pTemplate="footer">
-      <p-button label="Hint" icon="pi pi-info-circle" (onClick)="switchHint()"></p-button>
-      <p-button label="Reveal" icon="pi pi-send" [style]="{ 'margin-left': '.5em' }"></p-button>
-      <p-button *ngIf="selectedCardIndex < cardStack.length" label="Next Card" icon="pi pi-chevron-right" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }" (onClick)="cardGenerator()"></p-button>
-      <p-button *ngIf="selectedCardIndex == cardStack.length" label="End Quiz" icon="pi pi-chevron-right" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }" (onClick)="endDialog()"></p-button>
-    </ng-template>
-  </p-card>
+<div id="learn-card">
+  <mat-card *ngIf="cardStack.length > 0" appearance="raised">
+    <p>{{ card.cardGroupId }}</p><br>
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ card.question }}</mat-card-title>
+        <mat-card-subtitle>Card Nr. {{selectedCardIndex}} of {{cardStack.length}} Cards</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <textarea #textField rows="8" cols="80" placeholder="Your answer..."></textarea>
+    </mat-card-content>
+
+    <mat-card-actions id="card-button-array">
+      <button mat-raised-button class="mat-accent" #tooltip="matTooltip" matTooltip="{{card.expectedAnswer}}" matTooltipPosition="above" (click)="tooltip.toggle()">
+        <mat-icon>info</mat-icon>Hint
+      </button>
+      <button mat-raised-button><mat-icon>find_replace</mat-icon>Reveal</button>
+      <button mat-raised-button class="mat-primary" *ngIf="selectedCardIndex < cardStack.length" (click)="cardGenerator(); textField.value = ''">
+        <mat-icon>keyboard_arrow_right</mat-icon>Next Card
+      </button>
+      <button mat-raised-button class="mat-warn" *ngIf="selectedCardIndex == cardStack.length" (click)="endDialog()"><mat-icon>exit_to_app</mat-icon>End Quiz</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="determinate" [value]="selectedCardIndex" color="accent" aria-valuemax="cardStack.length"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
 </div>
 
-<p-messages *ngIf="showHint" [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
 
 <!-- TODO:
-  - Kartenzahl 0 of 11
   - Aktuelle Erfolgsquote
   - Aktuelle Lernzeit
   - Reveal => Abgleich mit expected
   - Hint => Snackbar mit opt. Hint
-
   -> noch nicht revealed => Skip (zählt nicht zu Quote)
   -> revealed => Next Card
 -->
-
-<div *ngIf="cardStack.length == 0">
-  <p>Selected CardGroup has no cards</p>
-</div>

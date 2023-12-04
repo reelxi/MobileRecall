@@ -7,6 +7,7 @@ import {
   CreationFormCardGroupComponent
 } from "../../dialog-forms/creation-form-cardgroup/creation-form-cardgroup.component";
 import {MatDialog} from "@angular/material/dialog";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-cardgroup-list',
@@ -23,7 +24,8 @@ export class CardGroupListComponent {
     password: "reel"
   };
 
-  constructor(private cardGroupService: CardGroupService, private cardService: CardService, private router: Router, private matDialog: MatDialog) {
+  constructor(private cardGroupService: CardGroupService, private cardService: CardService,
+              private router: Router, private matDialog: MatDialog, private snackBar: MatSnackBar) {
     this.fetchData();
   }
 
@@ -35,15 +37,25 @@ export class CardGroupListComponent {
     this.matDialog.open(CreationFormCardGroupComponent, {
       disableClose: true,
       width: "500px",
-      height: "250px"
+      height: "250px",
+      enterAnimationDuration: 500,
+      exitAnimationDuration: 500
     }).afterClosed().subscribe(() => this.fetchData());
   }
 
-
-  openLearnViewWithCardsFromCardGroupID(cardGroup: CardGroup): void {
+  openLearnViewOfSelectedCardGroup(cardGroup: CardGroup): void {
     this.cardService.getCardsByCardGroupId(cardGroup.identifier).subscribe((data: Card[]) => {
-      this.cardService.cardsOfSelectedCardGroup = data;
-      this.router.navigate(['learnView/', cardGroup.groupName]).then();
+      if (data.length === 0) {
+        this.snackBar.open("empty card groups can't be learned!", "close",
+          {
+            duration: 2000,
+            verticalPosition: "top",
+            horizontalPosition: "left"
+          });
+      } else {
+        this.cardService.cardsOfSelectedCardGroup = data;
+        this.router.navigate(['learning/', cardGroup.groupName]).then();
+      }
     });
   }
 

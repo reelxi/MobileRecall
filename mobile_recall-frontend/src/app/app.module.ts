@@ -22,6 +22,9 @@ import {MatListModule} from "@angular/material/list";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import {MatIconModule} from "@angular/material/icon";
     MatListModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
+    MatTooltipModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'de-DE'}

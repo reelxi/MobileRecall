@@ -12,7 +12,7 @@ export class CreationFormCardGroupComponent {
 
   formGroup_CardGroup = new FormGroup({
     groupName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    creator: new FormControl('6707d138-43c3-450b-b9bb-b982919ef50b', [Validators.required])
+    creator: new FormControl({value: '6707d138-43c3-450b-b9bb-b982919ef50b', disabled: true}, [Validators.required])
   });
 
   // TODO: Creator readonly field, displaying current users name

@@ -5,15 +5,17 @@
     <span matListItemLine id="li-button-array">
       <button mat-raised-button><mat-icon>insert_chart_outlined</mat-icon>Statistics</button>
       <button mat-raised-button><mat-icon>settings</mat-icon>Edit</button>
-      <button mat-raised-button (click)="openLearnViewWithCardsFromCardGroupID(cardGroup)"><mat-icon>play_arrow</mat-icon>Learn</button>
+      <button mat-raised-button (click)="openLearnViewOfSelectedCardGroup(cardGroup)"><mat-icon>play_arrow</mat-icon>Learn</button>
     </span>
   </mat-list-item>
 </mat-list>
 
-<p *ngIf="cardGroupList.length === 0" style="margin-top: 50px">
-  YOUR CARDGROUP-LIST IS EMPTY.<br>
-  ADD CARDGROUP(S), TO BE DISPLAYED HERE.
-</p>
+<div *ngIf="cardGroupList.length === 0" id="empty-list">
+  <p>
+    empty list of cardgroups!<br>
+    add <span class="mat-raised-button">'New Group(s)'</span> to be displayed here.
+  </p>
+</div>
 
 <div id="button-array">
   <button mat-raised-button class="mat-primary" (click)="openDialog()">
